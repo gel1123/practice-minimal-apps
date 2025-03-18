@@ -1,5 +1,4 @@
 {
-	// TODO: 値オブジェクトをTypeScriptで実装する時のスニペット
 	"Value Object Class": {
 		"prefix": "voc",
 		"description": "値オブジェクトのTypeScriptクラステンプレート",
