@@ -1,5 +1,5 @@
-import { it, expect, describe } from "vitest";
 import { TodoTitle } from "./TodoTitle";
+import { it, expect, describe } from "vitest";
 
 describe("TodoTitle", () => {
   it("should create valid title", () => {
@@ -20,7 +20,9 @@ describe("TodoTitle", () => {
 
   it("should validate title length", () => {
     // Empty title
-    expect(() => TodoTitle.create("")).toThrow("TodoTitle length must be between 1 and 100 characters");
+    expect(() => TodoTitle.create("")).toThrow(
+      "TodoTitle length must be between 1 and 100 characters",
+    );
 
     // Title with 100 characters should be valid
     const validLongTitle = "a".repeat(100);
@@ -28,6 +30,8 @@ describe("TodoTitle", () => {
 
     // Title with 101 characters should throw error
     const invalidLongTitle = "a".repeat(101);
-    expect(() => TodoTitle.create(invalidLongTitle)).toThrow("TodoTitle length must be between 1 and 100 characters");
+    expect(() => TodoTitle.create(invalidLongTitle)).toThrow(
+      "TodoTitle length must be between 1 and 100 characters",
+    );
   });
 });

@@ -18,34 +18,18 @@ export class Todo {
   }
 
   public changeTitle(title: TodoTitle): Todo {
-    return new Todo(
-      this.id,
-      title,
-      this.status,
-    );
+    return new Todo(this.id, title, this.status);
   }
 
   public start(): Todo {
-    return new Todo(
-      this.id,
-      this.title,
-      TodoStatus.create("InProgress"),
-    );
+    return new Todo(this.id, this.title, TodoStatus.create("InProgress"));
   }
 
   public complete(): Todo {
-    return new Todo(
-      this.id,
-      this.title,
-      TodoStatus.create("Completed"),
-    );
+    return new Todo(this.id, this.title, TodoStatus.create("Completed"));
   }
 
   public reset(): Todo {
-    return new Todo(
-      this.id,
-      this.title,
-      TodoStatus.create("NotStarted"),
-    );
+    return new Todo(this.id, this.title, TodoStatus.create("NotStarted"));
   }
 }

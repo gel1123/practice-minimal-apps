@@ -1,4 +1,3 @@
-
 type _Value = "NotStarted" | "InProgress" | "Completed";
 
 export class TodoStatus {

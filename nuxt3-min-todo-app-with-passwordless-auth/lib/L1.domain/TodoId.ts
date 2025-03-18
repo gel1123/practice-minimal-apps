@@ -7,8 +7,8 @@ export class TodoId {
   }
 
   private validate(value: string): void {
-    if (!value || value.trim() === '') {
-      throw new Error('IDは空にできません');
+    if (!value || value.trim() === "") {
+      throw new Error("IDは空にできません");
     }
   }
 

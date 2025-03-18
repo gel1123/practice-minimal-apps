@@ -1,5 +1,5 @@
-import { it, expect, describe } from "vitest";
 import { TodoStatus } from "./TodoStatus";
+import { it, expect, describe } from "vitest";
 
 describe("TodoStatus", () => {
   it("should create valid status", () => {

@@ -1,11 +1,11 @@
-import { it, expect, describe } from "vitest";
 import { TodoId } from "./TodoId";
+import { it, expect, describe } from "vitest";
 
 describe("TodoId", () => {
   it("should generate new unique id", () => {
     const id1 = TodoId.generateNew();
     const id2 = TodoId.generateNew();
-    
+
     expect(id1.getValue()).not.toBe(id2.getValue());
     expect(id1.getValue()).toBeTruthy();
     expect(id2.getValue()).toBeTruthy();

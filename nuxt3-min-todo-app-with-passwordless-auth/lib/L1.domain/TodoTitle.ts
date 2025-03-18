@@ -8,7 +8,9 @@ export class TodoTitle {
 
   private validate(value: string): void {
     if (value.length < 1 || value.length > 100) {
-      throw new Error(`TodoTitle length must be between 1 and 100 characters: ${value}`);
+      throw new Error(
+        `TodoTitle length must be between 1 and 100 characters: ${value}`,
+      );
     }
   }
 
