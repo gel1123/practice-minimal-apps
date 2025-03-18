@@ -1,0 +1,6 @@
+*.json
+*.lock
+*.md
+.nuxt/
+node_modules/
+.*
