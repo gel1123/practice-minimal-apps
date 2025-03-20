@@ -32,4 +32,12 @@ export class Todo {
   public reset(): Todo {
     return new Todo(this.id, this.title, TodoStatus.create("NotStarted"));
   }
+
+  public toJSON() {
+    return {
+      id: this.id.getValue(),
+      title: this.title.getValue(),
+      status: this.status.getValue(),
+    };
+  }
 }
