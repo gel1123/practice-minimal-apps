@@ -5,6 +5,10 @@
 
 declare module 'sst' {
   export interface Resource {
+    AlbiteTable: {
+      name: string;
+      type: 'sst.aws.Dynamo';
+    };
     AlbiteTrpc: {
       name: string;
       type: 'sst.aws.Function';

@@ -34,8 +34,11 @@
     "@trpc/client": "^11.0.0-rc.840",
     "@trpc/server": "^11.0.0-rc.840",
     "@types/aws-lambda": "^8.10.147",
+    "@types/uuid": "^10.0.0",
+    "electrodb": "^3.4.1",
     "sst": "3.10.0",
     "svelte-kit-sst": "2.43.5",
+    "uuid": "^11.1.0",
     "zod": "^3.24.2"
   }
 }
