@@ -1,3 +1,17 @@
+# nuxt3-mini-todo-app
+
+## 備忘録
+
+SST v3のNuxtコンポーネントでAWSにデプロイしようとしたが下記Issueにより断念。
+
+https://github.com/sst/sst/issues/5259
+
+昔やっていたみたいに静的サイトとしてビルドして、サーバーは別途APIを立てるのが妥当かもしれない。
+
+...が、今回は Nuxt3 API Route + Hono RPC を試したかったので、あえてSSR構成のまま残している。
+
+------------------------
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
