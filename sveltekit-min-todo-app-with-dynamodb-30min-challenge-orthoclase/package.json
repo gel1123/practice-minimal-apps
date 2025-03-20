@@ -1,0 +1,42 @@
+{
+	"name": "sveltekit-min-todo-app-with-dynamodb-30min-challenge-orthoclase",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"build": "vite build",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"dev": "vite dev",
+		"format": "prettier --write .",
+		"lint": "prettier --check .",
+		"prepare": "svelte-kit sync || echo ''",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^4.0.0",
+		"@sveltejs/kit": "^2.16.0",
+		"@sveltejs/vite-plugin-svelte": "^5.0.0",
+		"@tailwindcss/forms": "^0.5.9",
+		"@tailwindcss/typography": "^0.5.15",
+		"@tailwindcss/vite": "^4.0.0",
+		"prettier": "^3.4.2",
+		"prettier-plugin-svelte": "^3.3.3",
+		"prettier-plugin-tailwindcss": "^0.6.11",
+		"svelte": "^5.0.0",
+		"svelte-check": "^4.0.0",
+		"tailwindcss": "^4.0.0",
+		"typescript": "^5.0.0",
+		"vite": "^6.0.0"
+	},
+	"dependencies": {
+		"@trpc/client": "^11.0.0-rc.840",
+		"@trpc/server": "^11.0.0-rc.840",
+		"@types/aws-lambda": "^8.10.147",
+		"@types/uuid": "^10.0.0",
+		"electrodb": "^3.4.1",
+		"sst": "3.10.0",
+		"svelte-kit-sst": "2.43.5",
+		"uuid": "^11.1.0"
+	}
+}
