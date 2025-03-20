@@ -38,10 +38,10 @@
     ],
     "description": "簡易的なEntity, Repository, DataSource の組み合わせテンプレート"
   },
-  "MemoryDataSource": {
+  "MemoryTodoDataSource": {
     "prefix": "memory-data-source",
     "body": [
-      "export class MemoryDataSource implements I${1:Entity}DataSource {",
+      "export class MemoryTodoDataSource implements I${1:Entity}DataSource {",
       "  private data: Map<string, ${1:Entity}> = new Map();",
       "",
       "  async scan(): Promise<${1:Entity}[]> {",
@@ -76,6 +76,6 @@
       "  }",
       "}"
     ],
-    "description": "簡易なMemoryDataSourceの実装"
+    "description": "簡易なMemoryTodoDataSourceの実装"
   }
 }

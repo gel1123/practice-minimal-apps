@@ -1,14 +1,16 @@
 import { Todo } from "../L1.domain/Todo";
 import { TodoTitle } from "../L1.domain/TodoTitle";
 import { TodoUsecase } from "../L2.usecase/TodoUsecase";
-import { MemoryDataSource } from "../L4.infrastructure/MemoryTodoDataSource";
+import { MemoryTodoDataSource } from "../L4.infrastructure/MemoryTodoDataSource";
 import { createTodoApi } from "./TodoApi";
 import { describe, expect, it } from "vitest";
 
 describe("TodoApi", () => {
   describe("createTodo", () => {
     it("should create a new todo", async () => {
-      const todoApi = createTodoApi(new TodoUsecase(new MemoryDataSource()));
+      const todoApi = createTodoApi(
+        new TodoUsecase(new MemoryTodoDataSource()),
+      );
       const response = await todoApi.request("/api/todo/create", {
         method: "POST",
         body: JSON.stringify({ title: "テストタスク" }),
@@ -21,7 +23,9 @@ describe("TodoApi", () => {
     });
 
     it("should return 401 if title is not provided", async () => {
-      const todoApi = createTodoApi(new TodoUsecase(new MemoryDataSource()));
+      const todoApi = createTodoApi(
+        new TodoUsecase(new MemoryTodoDataSource()),
+      );
       const response = await todoApi.request("/api/todo/create", {
         method: "POST",
         body: JSON.stringify({}),
@@ -31,7 +35,9 @@ describe("TodoApi", () => {
     });
 
     it("should return 401 if title over 100 characters", async () => {
-      const todoApi = createTodoApi(new TodoUsecase(new MemoryDataSource()));
+      const todoApi = createTodoApi(
+        new TodoUsecase(new MemoryTodoDataSource()),
+      );
       const response = await todoApi.request("/api/todo/create", {
         method: "POST",
         body: JSON.stringify({ title: "a".repeat(101) }),
@@ -43,7 +49,7 @@ describe("TodoApi", () => {
 
   describe("startTodo", () => {
     it("should start a todo", async () => {
-      const dataSource = new MemoryDataSource();
+      const dataSource = new MemoryTodoDataSource();
       const todo = await dataSource.create(
         Todo.new(TodoTitle.create("開始するタスク")),
       );
@@ -59,7 +65,9 @@ describe("TodoApi", () => {
     });
 
     it("should return 401 if id is not provided", async () => {
-      const todoApi = createTodoApi(new TodoUsecase(new MemoryDataSource()));
+      const todoApi = createTodoApi(
+        new TodoUsecase(new MemoryTodoDataSource()),
+      );
       const response = await todoApi.request("/api/todo/start", {
         method: "POST",
         body: JSON.stringify({}),
@@ -71,7 +79,7 @@ describe("TodoApi", () => {
 
   describe("completeTodo", () => {
     it("should complete a todo", async () => {
-      const dataSource = new MemoryDataSource();
+      const dataSource = new MemoryTodoDataSource();
       const todo = await dataSource.create(
         Todo.new(TodoTitle.create("完了するタスク")),
       );
@@ -87,7 +95,9 @@ describe("TodoApi", () => {
     });
 
     it("should return 401 if id is not provided", async () => {
-      const todoApi = createTodoApi(new TodoUsecase(new MemoryDataSource()));
+      const todoApi = createTodoApi(
+        new TodoUsecase(new MemoryTodoDataSource()),
+      );
       const response = await todoApi.request("/api/todo/complete", {
         method: "POST",
         body: JSON.stringify({}),
@@ -99,7 +109,7 @@ describe("TodoApi", () => {
 
   describe("resetTodo", () => {
     it("should reset a todo", async () => {
-      const dataSource = new MemoryDataSource();
+      const dataSource = new MemoryTodoDataSource();
       const todo = await dataSource.create(
         Todo.new(TodoTitle.create("リセットするタスク")),
       );
@@ -115,7 +125,9 @@ describe("TodoApi", () => {
     });
 
     it("should return 401 if id is not provided", async () => {
-      const todoApi = createTodoApi(new TodoUsecase(new MemoryDataSource()));
+      const todoApi = createTodoApi(
+        new TodoUsecase(new MemoryTodoDataSource()),
+      );
       const response = await todoApi.request("/api/todo/reset", {
         method: "POST",
         body: JSON.stringify({}),
@@ -127,7 +139,7 @@ describe("TodoApi", () => {
 
   describe("changeTitle", () => {
     it("should change the title of a todo", async () => {
-      const dataSource = new MemoryDataSource();
+      const dataSource = new MemoryTodoDataSource();
       const todo = await dataSource.create(
         Todo.new(TodoTitle.create("元のタイトル")),
       );
@@ -146,7 +158,9 @@ describe("TodoApi", () => {
     });
 
     it("should return 401 if id is not provided", async () => {
-      const todoApi = createTodoApi(new TodoUsecase(new MemoryDataSource()));
+      const todoApi = createTodoApi(
+        new TodoUsecase(new MemoryTodoDataSource()),
+      );
       const response = await todoApi.request("/api/todo/change-title", {
         method: "POST",
         body: JSON.stringify({ title: "新しいタイトル" }),
@@ -156,7 +170,9 @@ describe("TodoApi", () => {
     });
 
     it("should return 401 if title is not provided", async () => {
-      const todoApi = createTodoApi(new TodoUsecase(new MemoryDataSource()));
+      const todoApi = createTodoApi(
+        new TodoUsecase(new MemoryTodoDataSource()),
+      );
       const response = await todoApi.request("/api/todo/change-title", {
         method: "POST",
         body: JSON.stringify({ id: "id" }),

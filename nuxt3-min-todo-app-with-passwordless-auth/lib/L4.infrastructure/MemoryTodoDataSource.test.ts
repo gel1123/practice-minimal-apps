@@ -1,14 +1,14 @@
 import { Todo } from "../L1.domain/Todo";
 import { TodoTitle } from "../L1.domain/TodoTitle";
-import { MemoryDataSource } from "./MemoryTodoDataSource";
+import { MemoryTodoDataSource } from "./MemoryTodoDataSource";
 import { it, expect, describe, beforeEach } from "vitest";
 
-describe("MemoryDataSource", () => {
-  let dataSource: MemoryDataSource;
+describe("MemoryTodoDataSource", () => {
+  let dataSource: MemoryTodoDataSource;
   let todo: Todo;
 
   beforeEach(() => {
-    dataSource = new MemoryDataSource();
+    dataSource = new MemoryTodoDataSource();
     todo = Todo.new(TodoTitle.create("テストタスク"));
   });
 
