@@ -5,6 +5,10 @@ import type { TodoTitle } from "../L1.domain/TodoTitle";
 export class TodoUsecase {
   constructor(private readonly todoDataSource: ITodoDataSource) {}
 
+  async listTodos(): Promise<Todo[]> {
+    return this.todoDataSource.scan();
+  }
+
   async createTodo(title: TodoTitle): Promise<Todo> {
     const todo = Todo.new(title);
     await this.todoDataSource.create(todo);

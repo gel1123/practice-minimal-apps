@@ -1,6 +1,6 @@
 import { TodoId } from "./TodoId";
 import { TodoStatus } from "./TodoStatus";
-import type { TodoTitle } from "./TodoTitle";
+import { TodoTitle } from "./TodoTitle";
 
 export class Todo {
   private constructor(
@@ -14,6 +14,18 @@ export class Todo {
       TodoId.generateNew(),
       title,
       TodoStatus.create("NotStarted"),
+    );
+  }
+
+  public static reconstruct(rawTodo: {
+    id: string;
+    title: string;
+    status: string;
+  }): Todo {
+    return new Todo(
+      TodoId.create(rawTodo.id),
+      TodoTitle.create(rawTodo.title),
+      TodoStatus.create(rawTodo.status),
     );
   }
 

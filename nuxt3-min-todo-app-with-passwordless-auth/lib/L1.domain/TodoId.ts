@@ -21,7 +21,7 @@ export class TodoId {
     return this.value;
   }
 
-  private static create(value: string): TodoId {
+  public static create(value: string): TodoId {
     return new TodoId(value);
   }
 

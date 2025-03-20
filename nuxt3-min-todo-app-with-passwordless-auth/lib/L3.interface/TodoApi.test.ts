@@ -6,6 +6,18 @@ import { createTodoApi } from "./TodoApi";
 import { describe, expect, it } from "vitest";
 
 describe("TodoApi", () => {
+  describe("listTodos", () => {
+    it("should return all todos", async () => {
+      const todoApi = createTodoApi(
+        new TodoUsecase(new MemoryTodoDataSource()),
+      );
+      const response = await todoApi.request("/api/todo/list");
+      expect(response.status).toBe(200);
+      const todos = await response.json();
+      expect(todos).toHaveLength(0);
+    });
+  });
+
   describe("createTodo", () => {
     it("should create a new todo", async () => {
       const todoApi = createTodoApi(

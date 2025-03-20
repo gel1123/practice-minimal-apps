@@ -3,12 +3,12 @@ type _Value = "NotStarted" | "InProgress" | "Completed";
 export class TodoStatus {
   private readonly value: _Value;
 
-  private constructor(value: _Value) {
+  private constructor(value: _Value | string) {
     this.validate(value);
-    this.value = value;
+    this.value = value as _Value;
   }
 
-  private validate(value: _Value): void {
+  private validate(value: _Value | string): void {
     if (["NotStarted", "InProgress", "Completed"].includes(value)) {
       return;
     }
@@ -23,7 +23,7 @@ export class TodoStatus {
     return this.value;
   }
 
-  public static create(value: _Value): TodoStatus {
+  public static create(value: string): TodoStatus {
     return new TodoStatus(value);
   }
 

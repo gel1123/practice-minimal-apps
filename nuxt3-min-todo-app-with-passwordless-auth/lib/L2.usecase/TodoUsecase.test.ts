@@ -12,6 +12,22 @@ describe("TodoUsecase", () => {
     todoUsecase = new TodoUsecase(dataSource);
   });
 
+  describe("list", () => {
+    it("should return all todos", async () => {
+      const todos = await todoUsecase.listTodos();
+      expect(todos).toHaveLength(0);
+
+      const title1 = TodoTitle.create("タスク1");
+      await todoUsecase.createTodo(title1);
+
+      const title2 = TodoTitle.create("タスク2");
+      await todoUsecase.createTodo(title2);
+
+      const todosAfterCreate = await todoUsecase.listTodos();
+      expect(todosAfterCreate).toHaveLength(2);
+    });
+  });
+
   describe("add", () => {
     it("should add a new todo with the specified title", async () => {
       const title = TodoTitle.create("テストタスク");

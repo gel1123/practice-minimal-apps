@@ -7,6 +7,10 @@ import { z } from "zod";
 export const createTodoApi = (usecase: TodoUsecase) => {
   return new Hono()
     .basePath("/api")
+    .get("/todo/list", async (c) => {
+      const todos = await usecase.listTodos();
+      return c.json(todos.map((todo) => todo.toJSON()));
+    })
     .post(
       "/todo/create",
       validator("json", (value, c) => {
